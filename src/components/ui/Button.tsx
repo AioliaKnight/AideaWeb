@@ -38,7 +38,7 @@ export interface ButtonProps
   href?: string;
 }
 
-export const Button = React.forwardRef<
+const Button = React.forwardRef<
   HTMLButtonElement,
   ButtonProps
 >(({ className, variant, size, ...props }, ref) => {
@@ -69,4 +69,5 @@ export const Button = React.forwardRef<
 
 Button.displayName = 'Button';
 
-export { buttonVariants }; 
+export { buttonVariants };
+export default Button; 
