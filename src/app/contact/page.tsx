@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import { Metadata } from "next";
+import ContactForm from "@/components/forms/ContactForm";
 
 export default function Contact() {
   const [formData, setFormData] = useState({

@@ -1,5 +1,5 @@
+import { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 
 export const metadata = {
   title: "服務項目 | Aidea:Med",

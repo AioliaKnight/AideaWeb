@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -225,6 +225,24 @@ export default function Cases() {
                 大幅提升了診所的營運效率。"
               </p>
             </div>
+          </div>
+
+          <div className="text-lg text-gray-600">
+            <p className="mb-4">
+              &ldquo;自從使用 Aidea:Med 的服務後，我們的網站流量增加了 200%，線上預約率也提升了 150%。&rdquo;
+            </p>
+            <p className="mb-4">
+              &ldquo;搜尋引擎排名提升了 180%，社群媒體互動也增加了 250%。&rdquo;
+            </p>
+            <p className="mb-4">
+              &ldquo;預約處理時間減少了 70%，病患滿意度提升了 85%。&rdquo;
+            </p>
+            <p className="mb-4">
+              &ldquo;網站轉換率提升了 120%，新病患預約增加了 90%。&rdquo;
+            </p>
+            <p>
+              &ldquo;整體營運效率提升了 60%，病患回診率也提升了 40%。&rdquo;
+            </p>
           </div>
         </div>
       </section>

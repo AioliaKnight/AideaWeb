@@ -1,5 +1,4 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+import { Metadata } from "next";
 import { PRIVACY_POLICY } from "@/constants/privacy";
 
 export const metadata: Metadata = {

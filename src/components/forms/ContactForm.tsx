@@ -51,12 +51,12 @@ export default function ContactForm() {
       });
 
       if (!response.ok) {
-        throw new Error('提交失敗');
+        throw new Error('Failed to send message');
       }
 
       setSubmitStatus('success');
       reset();
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
