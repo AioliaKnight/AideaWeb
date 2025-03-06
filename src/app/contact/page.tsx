@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Metadata } from "next";
-import ContactForm from "@/components/forms/ContactForm";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
