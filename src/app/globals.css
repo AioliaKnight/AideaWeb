@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @theme {
   --font-sans: var(--font-geist-sans);
@@ -21,4 +24,200 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    /* 顏色系統 */
+    --color-primary: 0 84.2% 60.2%;
+    --color-primary-foreground: 210 40% 98%;
+    --color-secondary: 210 40% 96.1%;
+    --color-secondary-foreground: 222.2 47.4% 11.2%;
+    --color-muted: 210 40% 96.1%;
+    --color-muted-foreground: 215.4 16.3% 46.9%;
+    --color-accent: 210 40% 96.1%;
+    --color-accent-foreground: 222.2 47.4% 11.2%;
+    --color-destructive: 0 84.2% 60.2%;
+    --color-destructive-foreground: 210 40% 98%;
+    
+    /* 背景和文字 */
+    --color-background: 0 0% 100%;
+    --color-foreground: 222.2 84% 4.9%;
+    
+    /* 邊框和輸入 */
+    --color-border: 214.3 31.8% 91.4%;
+    --color-input: 214.3 31.8% 91.4%;
+    --color-ring: 0 84.2% 60.2%;
+    
+    /* 其他 */
+    --radius: 0.5rem;
+  }
+
+  /* 深色模式 */
+  .dark {
+    --color-background: 222.2 84% 4.9%;
+    --color-foreground: 210 40% 98%;
+    --color-secondary: 217.2 32.6% 17.5%;
+    --color-secondary-foreground: 210 40% 98%;
+    --color-muted: 217.2 32.6% 17.5%;
+    --color-muted-foreground: 215 20.2% 65.1%;
+    --color-accent: 217.2 32.6% 17.5%;
+    --color-accent-foreground: 210 40% 98%;
+    --color-border: 217.2 32.6% 17.5%;
+    --color-input: 217.2 32.6% 17.5%;
+  }
+
+  /* 基礎樣式 */
+  * {
+    @apply border-gray-200;
+  }
+
+  body {
+    @apply bg-white text-gray-900 antialiased;
+  }
+
+  /* 響應式排版 */
+  h1 {
+    @apply text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl font-bold tracking-tight sm:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl font-semibold tracking-tight sm:text-3xl;
+  }
+
+  p {
+    @apply text-base leading-7 sm:text-lg;
+  }
+}
+
+/* 組件樣式 */
+@layer components {
+  /* 容器 */
+  .container {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  /* 按鈕 */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-500;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:ring-gray-500;
+  }
+
+  /* 表單元素 */
+  .input {
+    @apply block w-full rounded-md border-gray-300 shadow-sm transition-colors duration-200 focus:border-red-500 focus:ring-red-500 sm:text-sm;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-gray-700 mb-1;
+  }
+
+  /* 卡片 */
+  .card {
+    @apply bg-white rounded-lg shadow-sm ring-1 ring-gray-200 p-6 transition-all duration-200 hover:shadow-md;
+  }
+
+  /* 導航 */
+  .nav-link {
+    @apply text-gray-600 hover:text-red-600 transition-colors duration-200;
+  }
+
+  /* 網格布局 */
+  .grid-auto-fit {
+    @apply grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3;
+  }
+
+  /* 響應式間距 */
+  .section-padding {
+    @apply py-12 sm:py-16 lg:py-24;
+  }
+
+  .section-margin {
+    @apply mt-12 sm:mt-16 lg:mt-24;
+  }
+}
+
+/* 工具類 */
+@layer utilities {
+  /* 背景圖案 */
+  .bg-grid-pattern {
+    background-image: linear-gradient(to right, rgb(229 231 235 / 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(229 231 235 / 0.1) 1px, transparent 1px);
+    background-size: 4rem 4rem;
+  }
+
+  /* 漸變背景 */
+  .bg-gradient-primary {
+    @apply bg-gradient-to-br from-red-50 to-white;
+  }
+
+  /* 文字漸變 */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-red-700;
+  }
+
+  /* 動畫 */
+  .animate-fade-in {
+    @apply opacity-0 animate-[fadeIn_0.5s_ease-in_forwards];
+  }
+
+  .animate-slide-up {
+    @apply translate-y-4 opacity-0 animate-[slideUp_0.5s_ease-out_forwards];
+  }
+}
+
+/* 動畫關鍵幀 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* 響應式斷點 */
+@screen sm {
+  .container {
+    @apply px-6;
+  }
+}
+
+@screen lg {
+  .container {
+    @apply px-8;
+  }
+}
+
+/* 深色模式適配 */
+@media (prefers-color-scheme: dark) {
+  .card {
+    @apply bg-gray-800 ring-gray-700;
+  }
+
+  .nav-link {
+    @apply text-gray-300 hover:text-red-400;
+  }
 }
